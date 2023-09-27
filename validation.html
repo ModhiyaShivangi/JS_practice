@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        <table border="1" align="center">
+            <tr>
+                <td><label for="username">username</td>
+                <td><input type="text" onblur="checkvalid(this,'usernameError')" name="username" id="username" required>
+                    <span id="usernameError"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="passward">passward</td>
+                <td><input type="passward" onblur="checkvalid(this,'passwardError')" name="passward" id="passward"
+                        required>
+                    <span id="passwardError"></span>
+                </td>
+            </tr>
+            <tr>
+
+                <td colspan="2" align="center">
+                    <input type="submit">
+                </td>
+
+            </tr>
+        </table>
+
+    </form>
+
+
+    <script>
+        function checkvalid(anything,e) {
+            console.log("called", e);
+            
+            if (anything.value == "") {
+                console.log(" this field is required");
+                document.getElementById(e).innerText = "this field is required"
+            } else {
+                console.log(" done");
+                document.getElementById(e).innerText = "done"
+            }
+
+        }
+    </script>
+</body>
+ 
+</html>

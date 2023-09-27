@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>change-event</title>
+</head>
+<body>
+
+    <input type="number" name="val"  id="val">
+    <select name="quant" id="quant"></select>
+        <div class="disp" id="disp"></div>
+
+    <script>
+        let something = "testing"
+        
+        
+            let HTMLData =" "
+            for (let index=0; index<10; index++){
+                //  HTMLData += "<li>  abcd "+index+" </li>"
+                HTMLData += '<option value ='+index+'>'+index+'</option>'
+
+            }
+
+            document.getElementById("quant").innerHTML = HTMLData
+        // console.log(HTMLData);
+        document.getElementById("quant").addEventListener("change", function(){
+        // console.log(this);
+        // console.log(this.value);
+
+        let inpvalue = document.getElementById("val").value;
+        console.log("inpvalue :", inpvalue );
+        console.log("quantity:" , this.value);
+        let amount =  this.value * inpvalue;
+        console.log(amount);
+        document.getElementById("disp").innerHTML = "total amount is: <b> "+ amount +" </b>" 
+            })
+
+    </script>
+</body>
+</html>

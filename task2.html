@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task-2</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        <table border="1" align="center">
+            <tr>
+                <td><label for="username">Username</label></td>
+                <td><input type="text" required name="username" id="username" class="thisrequired">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="firstname">Firstname</label></td>
+                <td><input type="text" name="firstname" id="firstname">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="lastname">Lastname</label></td>
+                <td><input type="text" name="lastname" id="lastname">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="password">Password</label></td>
+                <td><input class="thisrequired" type="password" required name="password" id="password">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td><input class="thisrequired" type="email" required name="email" id="email">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" name="submit" id="submitButton">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        var elements = document.querySelectorAll('.thisrequired');
+
+        for (var i = 0; i < elements.length; i++) {
+            var inputElement = elements[i];
+            var fieldName = inputElement.getAttribute('name');
+
+            // Create and append the error message span element
+            var errorElement = document.createElement('span');
+            errorElement.className = 'error';
+            inputElement.parentNode.appendChild(errorElement);
+
+            inputElement.addEventListener('blur', function () {
+                var inputValue = this.value;
+                var errorElement = this.parentNode.querySelector('.error');
+
+                if (this.name === "email") {
+                    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                    if (!emailPattern.test(inputValue)) {
+                        errorElement.innerText = "Invalid email format!";
+                    } else if (inputValue == "") {
+                        errorElement.innerText = "This field is required!!!";
+                    } else {
+                        errorElement.innerText = "";
+                    }
+                } else {
+                    if (inputValue === "") {
+                        errorElement.innerText = "This field is required!!!";
+                    } else {
+                        errorElement.innerText = "";
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

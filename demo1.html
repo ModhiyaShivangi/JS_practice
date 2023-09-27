@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="" method="post" >
+        <table border="1" align="center" id="data" >
+            <tr>
+                <td><label for="username">Username</label></td>
+                <td><input type="text" name="username" id="Username" 
+                    class="thisrequired"  required></td>
+            </tr>
+            
+            <tr>
+                <td><label for="password">Password</label></td>
+                <td><input class="thisrequired" type="password" required name="password" id="Password">
+                    
+                </td>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td><input class="thisrequired" type="email" required name="email" id="Email">
+                    
+                </td>
+            </tr>
+            <tr>
+                <td><label for="firstname">Firstname</label></td>
+                <td><input type="text" required name="firstname" id="data">
+                    
+                </td>
+            </tr>
+            <tr>
+                <td><label for="lastname">Lastname</label></td>
+                <td><input type="text" required name="lastname" id="data">
+                    
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" name="submit" id="data">
+                </td>
+            </tr>
+        </table>
+    </form>
+    
+    <!-- jai sir video valo code -->
+
+    <script>
+
+        let requiredFields = document.getElementsByClassName(".thisrequired")
+
+        for(let i = 0; i < requiredFields.length; i++){
+            requiredFields[i].addEventListener("blur", function(event){
+                let div = document.getElementById("data")
+                var colspan = document.createElement("span")
+                colspan.setAttribute("div", "errorspan")
+                colspan.textContent = "this field is required";
+                if (this.value == " "){
+                    if (requiredfields[i].nextSibling ==null){
+                    
+                    requiredfields[i].parentElement.appendchild(closespan)
+                    }
+                }
+            })
+        }
+    </script>
+</body>
+</html>

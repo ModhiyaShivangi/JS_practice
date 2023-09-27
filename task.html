@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task-1</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        <table border="1" align="center">
+            <tr>
+                <td><label for="username">Username</label></td>
+                <td><input type="text" required name="username" id="username" class="thisrequired">
+                    <div id="usernameError"></div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td><label for="password">Password</label></td>
+                <td><input class="thisrequired" type="password" required name="password" id="password">
+                    <div id="passwordError"></div>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td><input class="thisrequired" type="email" required name="email" id="email">
+                    <div id="emailError"></div>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="firstname">Firstname</label></td>
+                <td><input type="text" required name="firstname" id="firstname">
+                    <div id="firstnameError"></div>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="lastname">Lastname</label></td>
+                <td><input type="text" required name="lastname" id="lastname">
+                    <div id="lastnameError"></div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" name="submit" id="submitButton">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        
+        var elements = document.querySelectorAll('.thisrequired');
+
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener('blur', function () {
+
+                var fieldName = this.getAttribute('name');
+
+                console.log("fieldName:", fieldName)
+
+                var errorElement = document.getElementById(fieldName + "Error");
+
+                console.log("errorElement:", errorElement)
+
+                var inputValue = this.value;
+                console.log("inputValue:", inputValue)
+
+                if (fieldName === "email") {
+                    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                    if (!emailPattern.test(inputValue)) {
+                        errorElement.innerText = "Invalid email format!";
+                    } else if (inputValue === "") {
+                        errorElement.innerText = "This field is required!!!";
+                    } else {
+                        errorElement.innerText = "";
+                    }
+                } else {
+                    if (inputValue === "") {
+                        errorElement.innerText = "This field is required!!!";
+                    } else {
+                        errorElement.innerText = "";
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

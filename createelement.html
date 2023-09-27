@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="btnclick">click</button>
+    <div id="disp"></div>
+    <script>
+        document.getElementById("btnclick").addEventListener("click", function(){
+            // console.log("called");
+           
+            
+            var element = document.createElement('input');
+            // console.log(element);
+            element.type = 'text';
+            element.value = 'data';
+            element.id = '';
+            
+            console.log(element);
+            document.getElementById("disp").appendChild(element);
+            
+
+
+
+        })
+    </script>
+</body>
+
+</html>
