@@ -7,66 +7,98 @@
 </head>
 <body>
 
-    <form action="" method="post" >
-        <table border="1" align="center" id="data" >
+    <!-- <form action="" method="post" id="data" >
+        <table border="1" align="center"  >
             <tr>
                 <td><label for="username">Username</label></td>
-                <td><input type="text" name="username" id="Username" 
+                <td><input type="text" name="username" id="username" 
                     class="thisrequired"  required></td>
             </tr>
             
             <tr>
                 <td><label for="password">Password</label></td>
-                <td><input class="thisrequired" type="password" required name="password" id="Password">
+                <td><input class="thisrequired" type="password" required name="password" 
+                    id="password">
                     
                 </td>
             </tr>
             <tr>
                 <td><label for="email">Email</label></td>
-                <td><input class="thisrequired" type="email" required name="email" id="Email">
+                <td><input class="thisrequired" type="email" required name="email" 
+                    id="email">
                     
                 </td>
             </tr>
             <tr>
                 <td><label for="firstname">Firstname</label></td>
-                <td><input type="text" required name="firstname" id="data">
+                <td><input type="text" required name="firstname" >
                     
                 </td>
             </tr>
             <tr>
                 <td><label for="lastname">Lastname</label></td>
-                <td><input type="text" required name="lastname" id="data">
+                <td><input type="text" required name="lastname" >
                     
                 </td>
             </tr>
             <tr>
                 <td colspan="2" align="center">
-                    <input type="submit" name="submit" id="data">
+                    <input type="submit" name="submit" >
                 </td>
             </tr>
         </table>
-    </form>
+    </form> -->
     
+    <form onsubmit="return checkReqFields()">
+        <b>Enter Name: </b><br />
+        <input type="text" class = "txt" />
+        <span id="reqTxtName" class="reqError"></span><br />
+        <br />
+
+        <b>Enter Address: </b><br />
+        <input type="text" class ="txt" />
+        <span id="reqTxtAddress" class="reqError"></span><br />
+
+        <p><input type="submit" value="Submit" /></p>
+    </form>
     <!-- jai sir video valo code -->
 
     <script>
 
-        let requiredFields = document.getElementsByClassName(".thisrequired")
+        // let requiredFields = document.getElementsByClassName(".thisrequired")
 
-        for(let i = 0; i < requiredFields.length; i++){
-            requiredFields[i].addEventListener("blur", function(event){
-                let div = document.getElementById("data")
-                var colspan = document.createElement("span")
-                colspan.setAttribute("div", "errorspan")
-                colspan.textContent = "this field is required";
-                if (this.value == " "){
-                    if (requiredfields[i].nextSibling ==null){
+        // for(let i = 0; i < requiredFields.length; i++){
+        //     requiredFields[i].addEventListener("blur", function(event){
+        //         let div = document.querySelectorAll(".thisrequired")
+        //         var colspan = document.createElement("span")
+        //         colspan.setAttribute("div", "errorspan")
+        //         colspan.textContent = "this field is required";
+        //         if (this.value == " "){
+        //             if (requiredfields[i].nextSibling == null){
                     
-                    requiredfields[i].parentElement.appendchild(closespan)
-                    }
+        //             requiredfields[i].parentElement.appendchild(closespan)
+        //             }
+        //         }
+        //     })
+        // }
+
+        function checkReqFields() {
+                var returnValue;
+                var name = document.getElementsByClassName(".txt").value;
+              
+
+                returnValue = true;
+                if (name.trim() == "") {
+                    document.getElementById("reqTxtName").innerHTML = "* Name is required.";
+                    returnValue = false;
                 }
-            })
-        }
+                if (address.trim() == "") {
+                    document.getElementById("reqTxtAddress").innerHTML = "* Address is required.";
+                    returnValue = false;
+                }
+                return returnValue;
+            }
+
     </script>
 </body>
 </html>

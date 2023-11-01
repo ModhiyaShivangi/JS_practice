@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marksheet Calculator</title>
+</head>
+
+<body>
+    <h1>Marksheet Calculator</h1>
+    <label for="subject1">Enter marks for Subject 1:</label>
+    <input type="number" id="subject1" placeholder="Enter marks for Subject 1"><br><br>
+
+    <label for="subject2">Enter marks for Subject 2:</label>
+    <input type="number" id="subject2" placeholder="Enter marks for Subject 2"><br><br>
+
+    <label for="subject3">Enter marks for Subject 3:</label>
+    <input type="number" id="subject3" placeholder="Enter marks for Subject 3"><br><br>
+
+    <button onclick="calculateMarks()">Calculate</button><br><br>
+
+    <h2>Result:</h2>
+    <p>Total Marks: <span id="totalMarks"></span></p>
+    <p>Percentage: <span id="percentage"></span>%</p>
+    <p>Grade: <span id="grade"></span></p>
+
+    <script>
+        function calculateMarks() {
+            let subject1 = parseFloat(document.getElementById("subject1").value);
+            let subject2 = parseFloat(document.getElementById("subject2").value);
+            let subject3 = parseFloat(document.getElementById("subject3").value);
+
+            let totalMarks = subject1 + subject2 + subject3;
+            let percentage = (totalMarks / 300) * 100;
+            let grade;
+
+            if (percentage >= 90) {
+                grade = 'A';
+            } else if (percentage >= 80) {
+                grade = 'B';
+            } else if (percentage >= 70) {
+                grade = 'C';
+            } else if (percentage >= 60) {
+                grade = 'D';
+            } else {
+                grade = 'F';
+            }
+
+            document.getElementById("totalMarks").textContent = totalMarks;
+            document.getElementById("percentage").textContent = percentage.toFixed(2);
+            document.getElementById("grade").textContent = grade;
+        }
+    </script>
+</body>
+
+</html>
